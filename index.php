@@ -61,8 +61,9 @@
                         $errorMsg = "Some of the pictures weren't changed as you weren't authorized to change them pictures!";
                     } else { // If they are, change the privacy
                         $currentPrivacy = $row['privacy'];
-                        $newPrivacy = ($currentPrivacy == 1) ? 1 : 0; // Invert privacy
+                        $newPrivacy = ($currentPrivacy == 1) ? 0 : 1; // Invert privacy
                         $updatePrivacySQL = "UPDATE image SET privacy = $newPrivacy WHERE imageID='$indivImageId'";
+                        echo $updatePrivacySQL;
                         if($conn->query($updatePrivacySQL) === TRUE) {
                             $successMsg = "Successfully changed the image privacy(s)!";
                         }
@@ -169,7 +170,7 @@
       <meta charset="gb18030">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="">
-      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <meta name="author" content="">
       <meta name="generator" content="Hugo 0.79.0">
       <title>Shopify Images - Waleed Sawan</title>
       <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
@@ -194,24 +195,6 @@
    </head>
    <body>
       <header>
-         <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-               <div class="row">
-                  <div class="col-sm-8 col-md-7 py-4">
-                     <h4 class="text-white">About</h4>
-                     <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-                  </div>
-                  <div class="col-sm-4 offset-md-1 py-4">
-                     <h4 class="text-white">Contact</h4>
-                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                        <li><a href="#" class="text-white">Like on Facebook</a></li>
-                        <li><a href="#" class="text-white">Email me</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
          <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container">
                <a href="#" class="navbar-brand d-flex align-items-center">
@@ -313,7 +296,7 @@
                            <h6>
                               <i class="fa fa-user"></i> <?php echo $image_firstName;?> (<?php echo $image_userName;?>)
                               <?php if($row['privacy'] == 0) { ?>
-                                <i class="fa fa-eye"></i> 
+                                <i class="fa fa-eye" alt="Public"></i> 
                               <?php } else if($row['privacy'] == 1) { ?>
                                 <i class="fa fa-eye-slash"></i> 
                               <?php } else {?>
@@ -460,6 +443,7 @@
       <footer class="text-muted py-5">
          <div class="container">
             <p>Made with <i class="fa fa-heart" style="color:red"></i> by Waleed Sawan.</p>   
+            <p>Using Bootstrap publicly available CSS libraries and templates.</p> 
          </div>
          <script src="http://mydrip.ca/shopify/assets/dist/js/bootstrap.bundle.min.js"></script><script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
