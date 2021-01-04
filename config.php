@@ -2,7 +2,7 @@
 
     $servername = "localhost";
     $username = "drip_jobs";
-    $password = "waleed123-";
+    $password = "##########";
     $dbname = "drip_shopify";
     
     // Create connection
