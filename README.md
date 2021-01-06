@@ -1,7 +1,7 @@
 # ShopifyImageRepo
 
 ## Demo Information:
-<h2 align="center"><a href="http://mydrip.ca/shopify/">Link</a></h2>  
+<h2 align="center" target="_blank"><a href="http://mydrip.ca/shopify/">Link</a></h2>  
 
 <p align="center" style="font-size:25px;">
   <strong>Username:</strong> shopify<br>
